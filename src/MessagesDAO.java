@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * Created with IntelliJ IDEA
@@ -28,11 +29,11 @@ public class MessagesDAO {
         ps.executeUpdate();
         System.out.println("The message created successfuly!");
 
-      }catch(Exception e){
+      }catch(SQLException e){
         System.out.println(e);
       }
 
-    }catch(Exception e){
+    }catch(SQLException e){
       System.out.println(e);
     }
 
@@ -57,7 +58,7 @@ public class MessagesDAO {
         System.out.println("");
       }
 
-    }catch(Exception e){
+    }catch(SQLException e){
       System.out.println("Messages not get");
       System.out.println(e);
     }
@@ -76,19 +77,38 @@ public class MessagesDAO {
         ps.setInt(1, id_message);
         ps.executeUpdate();
         System.out.println("The message has delete");
-      }catch(Exception e){
+      }catch(SQLException e){
         System.out.println(e);
         System.out.println("The message has been deleted");
       }
 
-    }catch(Exception e){
+    }catch(SQLException e){
       System.out.println(e);
     }
 
   }
 
   public static void updateMessageDB(Messages message){
+    Connect db_connect = new Connect();
 
+    try(Connection connect = db_connect.getConnection()) {
+      PreparedStatement ps = null;
+
+      try{
+        String query = "UPDATE messages SET message = ? WHERE id_message = ?";
+        ps = connect.prepareStatement(query);
+        ps.setString(1, message.getMessage());
+        ps.setInt(2, message.getId_messages());
+        ps.executeUpdate();
+        System.out.println("The message has been update");
+      }catch(SQLException e){
+        System.out.println(e);
+        System.out.println("The message not been update");
+      }
+
+    }catch(SQLException e){
+      System.out.println(e);
+    }
   }
 
 }
