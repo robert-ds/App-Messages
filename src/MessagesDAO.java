@@ -65,6 +65,25 @@ public class MessagesDAO {
   }
 
   public static void deleteMessageDB(int id_message){
+    Connect db_connect = new Connect();
+
+    try(Connection connect = db_connect.getConnection()){
+    PreparedStatement ps = null;
+
+      try{
+        String query = "DELETE FROM messages WHERE id_message = ?";
+        ps = connect.prepareStatement(query);
+        ps.setInt(1, id_message);
+        ps.executeUpdate();
+        System.out.println("The message has delete");
+      }catch(Exception e){
+        System.out.println(e);
+        System.out.println("The message has been deleted");
+      }
+
+    }catch(Exception e){
+      System.out.println(e);
+    }
 
   }
 

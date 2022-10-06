@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="84d71125-72a4-4d52-8277-c12ab1b8b93e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Connect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Connect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MessagesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessagesDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MessagesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessagesService.java" afterDir="false" />
     </list>
@@ -108,7 +107,7 @@
       <option name="presentableId" value="Default" />
       <updated>1664991125561</updated>
       <workItem from="1664991157120" duration="9324000" />
-      <workItem from="1665081710057" duration="9743000" />
+      <workItem from="1665081710057" duration="10931000" />
     </task>
     <servers />
   </component>
