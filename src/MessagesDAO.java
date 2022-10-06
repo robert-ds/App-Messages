@@ -1,5 +1,6 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  * Created with IntelliJ IDEA
@@ -38,6 +39,28 @@ public class MessagesDAO {
   }
 
   public static void readMessageDB(){
+    Connect db_connect = new Connect();
+
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+
+    try(Connection connect = db_connect.getConnection()){
+      String query = "SELECT * FROM messages";
+      ps = connect.prepareStatement(query);
+      rs = ps.executeQuery();
+
+      while(rs.next()){
+        System.out.println("ID: " + rs.getInt("id_message"));
+        System.out.println("Message: " + rs.getString("message"));
+        System.out.println("Message Author: " + rs.getString("message_author"));
+        System.out.println("Date: " + rs.getString("date"));
+        System.out.println("");
+      }
+
+    }catch(Exception e){
+      System.out.println("Messages not get");
+      System.out.println(e);
+    }
 
   }
 

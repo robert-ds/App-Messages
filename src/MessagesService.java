@@ -25,7 +25,7 @@ public class MessagesService {
   }
 
   public static void listMessages(){
-
+    MessagesDAO.readMessageDB();
   }
 
   public static void deleteMessage(){
