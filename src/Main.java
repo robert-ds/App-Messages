@@ -45,7 +45,7 @@ public class Main {
           break;
 
         default:
-          System.out.println("Invalid Option");
+          System.out.println("Invalid Option, app finished");
       }
 
     }while(opt != 5);

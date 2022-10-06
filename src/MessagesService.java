@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Created with IntelliJ IDEA
  * Created By Kinsey
@@ -7,6 +9,18 @@
 public class MessagesService {
 
   public static void createMessage(){
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Write Message");
+    String message = sc.nextLine();
+
+    System.out.println("Write name author this message");
+    String author = sc.nextLine();
+
+    Messages ms = new Messages();
+    ms.setMessage(message);
+    ms.setAuthorMessage(author);
+
+    MessagesDAO.createMessageDB(ms);
 
   }
 
